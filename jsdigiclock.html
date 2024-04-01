@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Dancing Script', cursive; /* Dancing Script font */
+      background-color: #333333; /* Dark grey background color */
+      color: #ffffff; /* White color for text */
+    }
+
+    #clock {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #000000; /* Black background color for buttons */
+      color: #ffffff; /* White color for button text */
+      border: none;
+      padding: 10px 20px;
+      font-family: 'Dancing Script', cursive; /* Dancing Script font */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+  <div class="button-container">
+    <button onclick="startClock()">Start</button>
+    <button onclick="stopClock()">Stop</button>
+  </div>
+
+  <script>
+    let clockInterval;
+
+    function updateClock() {
+      const clockElement = document.getElementById('clock');
+      const currentTime = new Date();
+      const year = currentTime.getFullYear();
+      const month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+      const day = currentTime.getDate().toString().padStart(2, '0');
+      const hours = currentTime.getHours().toString().padStart(2, '0');
+      const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+      const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+      const dateString = day + '/' + month + '/' + year;
+      const timeString = hours + ':' + minutes + ':' + seconds;
+      clockElement.innerHTML = dateString + '<br>' + timeString;
+    }
+
+    function startClock() {
+      clockInterval = setInterval(updateClock, 1000);
+    }
+
+    function stopClock() {
+      clearInterval(clockInterval);
+    }
+
+    // Start the clock immediately
+    startClock();
+  </script>
+</body>
+</html>
+
+

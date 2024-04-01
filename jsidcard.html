@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student College ID Card Generator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Student College ID Card Generator</h2>
+            <form id="idCardForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" required>
+
+                <label for="course">Course:</label>
+                <input type="text" id="course" required>
+
+                <label for="university">University:</label>
+                <input type="text" id="university" required>
+
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" accept="image/*" required>
+
+                <input type="submit" value="Generate Card">
+            </form>
+        </div>
+
+        <div class="card" id="idCard">
+            <h2>Student College ID Card</h2>
+            <div id="cardContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

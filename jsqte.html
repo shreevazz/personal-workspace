@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      margin-top: 40px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: white;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .quote {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      color: #333;
+      font-family: "Dancing Script", cursive;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="greeting"></h1>
+  <div class="container">
+    <div class="quote" id="quote"></div>
+    <button onclick="generateQuote()">New Quote</button>
+  </div>
+
+  <script>
+    // Function to get the current time of day
+    function getTimeOfDay() {
+      var currentTime = new Date();
+      var currentHour = currentTime.getHours();
+
+      if (currentHour < 12) {
+        return "morning";
+      } else if (currentHour < 18) {
+        return "afternoon";
+      } else {
+        return "evening/night";
+      }
+    }
+
+    // Function to display the greeting message
+    function displayGreeting() {
+      var timeOfDay = getTimeOfDay();
+      var greeting = "Let's start our " + timeOfDay + " with a new quote";
+      document.getElementById("greeting").textContent = greeting;
+    }
+
+    // Function to generate a random quote
+    function generateQuote() {
+      var quotes = [
+        "The only way to do great work is to love what you do. - Steve Jobs",
+        "In the midst of chaos, there is also opportunity. - Sun Tzu",
+        "Believe you can and you're halfway there. - Theodore Roosevelt",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+        "The best way to predict the future is to create it. - Peter Drucker",
+        "Do not wait for opportunity, create it. - George Bernard Shaw",
+        "The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",
+        "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+        "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+        "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson"
+      ];
+
+      var randomIndex = Math.floor(Math.random() * quotes.length);
+      var quote = quotes[randomIndex];
+      document.getElementById("quote").textContent = quote;
+
+      var colors = [
+        "#3b3838", "#4f4c4c", "#2e2a2a", "#FF8C00", "#FF1493",
+        "#006400", " #8B4513", "#800080", "#00008B", "#8B0000"
+      ];
+
+      var randomColorIndex = Math.floor(Math.random() * colors.length);
+      var color = colors[randomColorIndex];
+
+      document.body.style.backgroundColor = color;
+      document.getElementById("quote").style.color = color;
+      document.querySelector("button").style.backgroundColor = color;
+      document.querySelector("button").style.color = "white";
+
+      var container = document.querySelector(".container");
+      container.style.backgroundColor = "#f2f2f2";
+    }
+
+    displayGreeting();
+  </script>
+</body>
+</html>
+
+
+
+
